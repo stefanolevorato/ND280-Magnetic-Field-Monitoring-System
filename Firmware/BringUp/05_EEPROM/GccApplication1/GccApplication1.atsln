@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "GccApplication1", "GccApplication1\GccApplication1.cproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C3D9020-7452-4474-BAE7-20190F4646CB}"
+	ProjectSection(SolutionItems) = preProject
+		..\ND280_Node_v0.3.0_EEPROM\board_id.c = ..\ND280_Node_v0.3.0_EEPROM\board_id.c
+		..\ND280_Node_v0.3.0_EEPROM\board_id.h = ..\ND280_Node_v0.3.0_EEPROM\board_id.h
+		..\ND280_Node_v0.3.0_EEPROM\calibration.c = ..\ND280_Node_v0.3.0_EEPROM\calibration.c
+		..\ND280_Node_v0.3.0_EEPROM\calibration.h = ..\ND280_Node_v0.3.0_EEPROM\calibration.h
+		..\ND280_Node_v0.3.0_EEPROM\config.h = ..\ND280_Node_v0.3.0_EEPROM\config.h
+		..\ND280_Node_v0.3.0_EEPROM\crc16.c = ..\ND280_Node_v0.3.0_EEPROM\crc16.c
+		..\ND280_Node_v0.3.0_EEPROM\crc16.h = ..\ND280_Node_v0.3.0_EEPROM\crc16.h
+		..\ND280_Node_v0.3.0_EEPROM\main.c = ..\ND280_Node_v0.3.0_EEPROM\main.c
+		..\ND280_Node_v0.3.0_EEPROM\README.txt = ..\ND280_Node_v0.3.0_EEPROM\README.txt
+		..\ND280_Node_v0.3.0_EEPROM\tmag5273.c = ..\ND280_Node_v0.3.0_EEPROM\tmag5273.c
+		..\ND280_Node_v0.3.0_EEPROM\tmag5273.h = ..\ND280_Node_v0.3.0_EEPROM\tmag5273.h
+		..\ND280_Node_v0.3.0_EEPROM\twi1.c = ..\ND280_Node_v0.3.0_EEPROM\twi1.c
+		..\ND280_Node_v0.3.0_EEPROM\twi1.h = ..\ND280_Node_v0.3.0_EEPROM\twi1.h
+		..\ND280_Node_v0.3.0_EEPROM\uart0.c = ..\ND280_Node_v0.3.0_EEPROM\uart0.c
+		..\ND280_Node_v0.3.0_EEPROM\uart0.h = ..\ND280_Node_v0.3.0_EEPROM\uart0.h
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.ActiveCfg = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
+		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

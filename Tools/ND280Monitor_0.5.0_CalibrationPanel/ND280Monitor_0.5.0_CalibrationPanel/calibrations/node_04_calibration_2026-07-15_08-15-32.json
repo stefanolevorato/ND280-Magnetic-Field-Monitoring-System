@@ -1,0 +1,62 @@
+{
+  "format_version": 1,
+  "created_iso": "2026-07-15T08:15:26",
+  "board_id": 4,
+  "firmware": "0.5.0-alpha1",
+  "method": "six_position_ambient_field_offset",
+  "samples_per_position": 20,
+  "offset_x_mt": -0.131,
+  "offset_y_mt": -0.2575,
+  "offset_z_mt": -0.22799999999999998,
+  "gain_x": 1.0,
+  "gain_y": 1.0,
+  "gain_z": 1.0,
+  "reference_temperature_c": 27.744000000000003,
+  "noise_x_sigma_mt": 0.040275367945655005,
+  "noise_y_sigma_mt": 0.04198997374060673,
+  "noise_z_sigma_mt": 0.02337339918526367,
+  "captures": {
+    "X+": {
+      "mean_mt": -0.14250000000000002,
+      "sigma_mt": 0.04458876422078596,
+      "minimum_mt": -0.22,
+      "maximum_mt": -0.08,
+      "samples": 20
+    },
+    "Y+": {
+      "mean_mt": -0.25,
+      "sigma_mt": 0.047016234598162725,
+      "minimum_mt": -0.35,
+      "maximum_mt": -0.15,
+      "samples": 20
+    },
+    "Z+": {
+      "mean_mt": -0.22349999999999998,
+      "sigma_mt": 0.025188761069384225,
+      "minimum_mt": -0.28,
+      "maximum_mt": -0.17,
+      "samples": 20
+    },
+    "X-": {
+      "mean_mt": -0.11950000000000001,
+      "sigma_mt": 0.04817457289571139,
+      "minimum_mt": -0.22,
+      "maximum_mt": -0.03,
+      "samples": 20
+    },
+    "Y-": {
+      "mean_mt": -0.265,
+      "sigma_mt": 0.05529823448214333,
+      "minimum_mt": -0.35,
+      "maximum_mt": -0.16,
+      "samples": 20
+    },
+    "Z-": {
+      "mean_mt": -0.2325,
+      "sigma_mt": 0.030240265941464974,
+      "minimum_mt": -0.28,
+      "maximum_mt": -0.17,
+      "samples": 20
+    }
+  }
+}
