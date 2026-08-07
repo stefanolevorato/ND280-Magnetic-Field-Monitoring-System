@@ -1,0 +1,13 @@
+\chapter{Communication Protocol}
+
+The current NodeOS command protocol uses a mandatory colon prefix. Measurement and diagnostic responses use the \texttt{\$ND280} packet family.
+
+Examples include:
+\begin{verbatim}
+:HELP
+:INFO
+:DIAG
+:CAL READ
+\end{verbatim}
+
+The protocol will be extended for multi-sensor and multi-board operation while preserving explicit versioning.

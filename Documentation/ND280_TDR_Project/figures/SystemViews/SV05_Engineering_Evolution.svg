@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1650" viewBox="0 0 1100 1650">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4A5560"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="550.0" y="48" font-family="Liberation Sans,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#25313C">SV-05  Engineering Evolution</text>
+<rect x="220" y="100" width="660" height="105" rx="16" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="550.0" y="134" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Scientific Motivation</text>
+<text x="550.0" y="166" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Need for accurate and continuous ND280 magnetic-field monitoring</text>
+<line x1="550" y1="205" x2="550" y2="247" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="260" width="660" height="105" rx="16" fill="#F1F1F1" stroke="#616161" stroke-width="3"/>
+<text x="550.0" y="294" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">System Requirements</text>
+<text x="550.0" y="326" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Scientific | Functional | Engineering | Reliability</text>
+<line x1="550" y1="365" x2="550" y2="407" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="420" width="660" height="105" rx="16" fill="#EAF2F8" stroke="#4F81BD" stroke-width="3"/>
+<text x="550.0" y="454" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Reference Single-Sensor Node</text>
+<text x="550.0" y="486" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Hardware | NodeOS | ND280 Monitor | Protocol</text>
+<line x1="550" y1="525" x2="550" y2="567" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="580" width="660" height="105" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="550.0" y="614" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Validation Campaign</text>
+<text x="550.0" y="646" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Functional tests | Long-duration tests | Lessons learned</text>
+<line x1="550" y1="685" x2="550" y2="727" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="740" width="660" height="105" rx="16" fill="#EAF2F8" stroke="#4F81BD" stroke-width="3"/>
+<text x="550.0" y="774" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Eight-Sensor Multiplexing Node</text>
+<text x="550.0" y="806" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">TCA9548A | TCA9517A | OLED | ROLE | Node ID</text>
+<line x1="550" y1="845" x2="550" y2="887" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="900" width="660" height="105" rx="16" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="550.0" y="934" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Hardware Design Review</text>
+<text x="550.0" y="966" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Architecture and PCB review before manufacture</text>
+<line x1="550" y1="1005" x2="550" y2="1047" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="1060" width="660" height="105" rx="16" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="550.0" y="1094" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Prototype Manufacturing</text>
+<text x="550.0" y="1126" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Rev.A production package and controlled build</text>
+<line x1="550" y1="1165" x2="550" y2="1207" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="1220" width="660" height="105" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="550.0" y="1254" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Bring-up and Qualification</text>
+<text x="550.0" y="1286" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Power -&gt; MCU -&gt; MUX -&gt; TMAG array -&gt; network</text>
+<line x1="550" y1="1325" x2="550" y2="1367" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="1380" width="660" height="105" rx="16" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="550.0" y="1414" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">Distributed Acquisition System</text>
+<text x="550.0" y="1446" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Coordinator | Multi-node network | Payload aggregation</text>
+<line x1="550" y1="1485" x2="550" y2="1527" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="220" y="1540" width="660" height="105" rx="16" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="550.0" y="1574" font-family="Liberation Sans,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle" fill="#25313C">ND280 Deployment</text>
+<text x="550.0" y="1606" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Long-term detector magnetic-field monitoring</text>
+<rect x="910" y="430" width="155" height="410" rx="16" fill="#F1F1F1" stroke="#616161" stroke-width="3"/>
+<text x="987.5" y="464" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#25313C">Quality Gates</text>
+<text x="987.5" y="496" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Validation</text>
+<text x="987.5" y="516" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Design Review</text>
+<text x="987.5" y="536" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Manufacturing</text>
+<text x="987.5" y="556" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">Qualification</text>
+<text x="550" y="1585" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#25313C">Every validated development stage becomes the engineering baseline for the next one.</text>
+</svg>

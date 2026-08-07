@@ -1,0 +1,17 @@
+\chapter{Validation Campaign}
+
+The Reference Node has been exercised through functional tests and long-duration acquisition runs.
+
+\section{Initial Long-Duration Test}
+
+A representative long-duration test reached an uptime of 68,395 seconds, with 49,425 successful measurements, zero measurement failures, zero TWI errors and zero EEPROM errors.
+
+UART receive robustness was subsequently improved through the finite-state-machine command parser used in NodeOS v0.5.3-alpha1.
+
+\section{Extended Long-Duration Test}
+
+A later extended acquisition run provided a substantially longer operational sample. As documented in Figure~\ref{fig:monitor_long_run}, the Reference Single-Sensor Node reached an uptime of 273792 seconds (approximately 76 hours). At the captured point the diagnostic counters reported 197589 successful measurements, zero measurement failures, zero TWI errors, zero UART receive overflows and zero EEPROM errors.
+
+The ND280 Monitor simultaneously reported zero missing packets for the displayed acquisition sequence. This extended run provides additional evidence that the acquisition, TWI communication, EEPROM handling, command transport and monitoring chain can operate continuously over multi-day periods without the error modes observed during the earlier UART parser development phase.
+
+These results validate the Reference Node as an engineering baseline. Final noise, offset, thermal behaviour, absolute calibration and distributed-bus performance remain to be qualified on the Eight-Sensor Multiplexing Node and on the final detector hardware.

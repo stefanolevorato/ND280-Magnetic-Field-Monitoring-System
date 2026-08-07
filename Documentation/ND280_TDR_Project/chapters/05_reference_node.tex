@@ -1,0 +1,131 @@
+\chapter{Reference Single-Sensor Node}
+\label{chap:reference-node}
+
+The Reference Single-Sensor Node represents the engineering baseline of the ND280 Magnetic Field Monitoring System. Its objective was not to implement the final detector hardware, but to validate the complete acquisition chain before introducing multiplexing and distributed communication.
+
+The platform was used to validate hardware operation, magnetic-field acquisition, persistent calibration, NodeOS, the serial communication protocol, the ND280 Monitor, watchdog recovery and long-duration operational behaviour. Every subsequent hardware revision is derived from the architecture validated on this reference platform.
+
+\section{Engineering Objectives}
+
+The first development stage was intentionally limited to one magnetic sensor. This reduced hardware complexity while preserving all functions required to exercise the complete system from the physical measurement to the desktop application.
+
+The Reference Platform was required to validate:
+\begin{itemize}[leftmargin=*]
+  \item acquisition of the three magnetic-field components and sensor temperature;
+  \item operation of the TMAG5273A2 sensor and the ATmega328PB TWI interface;
+  \item the NodeOS layered firmware architecture;
+  \item hardware node identification;
+  \item persistent calibration in EEPROM;
+  \item watchdog supervision and reset-cause diagnostics;
+  \item deterministic serial command handling;
+  \item the ND280 communication packet format;
+  \item the ND280 Monitor desktop application;
+  \item long-duration acquisition and logging.
+\end{itemize}
+
+The goal was therefore to establish a stable engineering reference, not merely to demonstrate that a magnetic sensor could be read.
+
+\section{Reference Platform Architecture}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.88\textwidth]{RV01_Reference_Single_Sensor_Platform.pdf}
+  \caption{\textbf{RV-01 -- Reference Single-Sensor Platform.} The reference acquisition chain couples one TMAG5273A2 sensor to the ATmega328PB running NodeOS and exposes the resulting measurements and diagnostics to the ND280 Monitor through UART.}
+  \label{fig:rv01}
+\end{figure}
+
+The hardware architecture was kept deliberately simple. The ATmega328PB provides the embedded processing and peripheral interfaces, while the TMAG5273A2 provides three-axis magnetic-field and temperature measurements. The sensor is operated in the A2 range configuration used by the project, corresponding to a full-scale magnetic range of approximately \SI{266}{mT}.
+
+The reference firmware configuration uses ten samples per reported measurement and a \SI{100}{ms} interval between samples. The measured values are averaged before calibration and packet generation. During the validation campaign the node communicated with the engineering PC interface through UART0 at 4800 baud.
+
+The board includes hardware Node ID selection, non-volatile calibration storage and watchdog supervision. These functions were introduced at the reference stage because they were considered architectural requirements for the later distributed system rather than optional debugging features.
+
+\section{NodeOS Integration}
+
+The Reference Platform was the first complete hardware implementation of NodeOS. The firmware architecture separates application behaviour, reusable services, platform services and hardware-dependent access.
+
+On the reference node, NodeOS provides:
+\begin{itemize}[leftmargin=*]
+  \item TMAG5273A2 initialization and measurement acquisition;
+  \item sample averaging;
+  \item calibration offset and gain application;
+  \item EEPROM persistence and calibration-state reporting;
+  \item hardware Node ID management;
+  \item UART packet generation and command reception;
+  \item diagnostics and internal counters;
+  \item watchdog servicing and reset-cause reporting.
+\end{itemize}
+
+Developing and stabilizing these services before introducing the eight-channel multiplexer substantially reduced the risk of mixing firmware-architecture problems with new hardware-integration problems.
+
+\section{Communication Architecture}
+
+The reference node uses UART0 as its engineering communication interface. Measurement data are transmitted using the \texttt{\$ND280} packet family, while diagnostic and calibration information use dedicated response families such as \texttt{\$ND280DIAG}, \texttt{\$ND280CAL} and \texttt{\$ND280RSP}.
+
+The command receiver evolved during validation. Early line-based parsing could interpret serial noise, echoes or unrelated traffic as commands. This behaviour was addressed by introducing a deterministic finite-state-machine parser in NodeOS v0.5.3-alpha1.
+
+Commands are explicitly framed by the colon character. Examples include:
+\begin{verbatim}
+:HELP
+:INFO
+:DIAG
+:CAL READ
+:DIAG WDT TEST
+\end{verbatim}
+
+Input that does not belong to a valid command frame is ignored. The same rule is implemented by the ND280 Monitor transport layer, which adds the command prefix before transmission.
+
+\section{Validation Campaign}
+
+The Reference Platform was subjected to repeated functional tests and extended unattended acquisition runs. Validation covered the sensor interface, calibration persistence, watchdog recovery, serial communication, command parsing, diagnostics and desktop logging.
+
+A representative long-duration run reached an uptime of 68,395 seconds (approximately 19 hours). At the end of the run the diagnostic counters reported 49,425 successful measurements, zero measurement failures, zero TWI errors and zero EEPROM errors.
+
+\begin{table}[htbp]
+\centering
+\caption{Representative Reference Node long-duration validation results.}
+\label{tab:reference-validation}
+\begin{tabular}{lr}
+\toprule
+Parameter & Observed value \\
+\midrule
+Uptime & 68,395 s \\
+Successful measurements & 49,425 \\
+Measurement failures & 0 \\
+TWI errors & 0 \\
+EEPROM errors & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The run demonstrated stable sensor acquisition and persistence behaviour. UART receive robustness was treated as a separate engineering issue: receive-overflow and parser behaviour observed during earlier tests led to UART hardening and ultimately to the finite-state-machine command parser. The corrected firmware was subsequently exercised with diagnostic commands without disturbing normal measurement acquisition.
+
+Watchdog functionality was also verified explicitly using the diagnostic watchdog test command. The firmware acknowledged the test, intentionally stopped servicing the watchdog and restarted with the reset cause correctly reported as \texttt{WATCHDOG}. This verified both the recovery mechanism and the associated diagnostics.
+
+\section{Engineering Lessons Learned}
+
+The Reference Platform produced several design decisions that directly influenced the later Eight-Sensor Multiplexing Node.
+
+\subsection*{Validate the complete acquisition chain before increasing hardware complexity}
+The single-sensor platform allowed sensor, firmware, protocol and desktop-software problems to be isolated and corrected without the additional variables introduced by multiplexing or multi-board networking.
+
+\subsection*{Firmware architecture must precede hardware evolution}
+NodeOS was stabilized before the eight-sensor hardware was introduced. The new board can therefore extend the measurement service instead of requiring a complete firmware redesign.
+
+\subsection*{Diagnostics are part of the system architecture}
+Watchdog counters, reset flags, TWI statistics, measurement counters and EEPROM status proved essential during long-duration testing. They are retained as permanent services rather than temporary debug instrumentation.
+
+\subsection*{Command processing must be deterministic}
+Serial command reception must be explicitly framed and independent of arbitrary serial traffic. The finite-state-machine parser and mandatory colon prefix were introduced as a direct consequence of validation observations.
+
+\subsection*{Calibration and identity must survive operational cycles}
+Persistent EEPROM calibration and hardware-defined Node ID prevent configuration ambiguity after power cycling and simplify replacement or reinstallation of a node.
+
+\subsection*{Long-duration tests are required before freezing the next hardware stage}
+Short functional tests demonstrated correctness, but unattended operation exposed communication and recovery behaviours that were not visible during bring-up. Long-duration validation therefore became a required gate before subsequent hardware evolution.
+
+\section{Summary}
+
+The Reference Single-Sensor Node established the validated baseline of the ND280 Magnetic Field Monitoring System. It demonstrated that the sensor, NodeOS firmware, communication protocol, calibration storage, watchdog diagnostics and ND280 Monitor could operate as one coherent acquisition chain over extended periods.
+
+The resulting engineering knowledge and validated software architecture formed the basis of the Eight-Sensor Multiplexing Node described later in this report.

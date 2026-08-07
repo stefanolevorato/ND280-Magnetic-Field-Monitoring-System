@@ -1,0 +1,119 @@
+\documentclass[a4paper,11pt,oneside]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{float}
+
+\graphicspath{{figures/SystemViews/}{figures/ReferenceViews/}{figures/SoftwareViews/}{figures/HardwareViews/}}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+  pdftitle={ND280 Magnetic Field Monitoring System - Technical Design Report},
+  pdfauthor={Stefano Levorato}
+}
+
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\lhead{ND280 Magnetic Field Monitoring System}
+\rhead{TDR v0.4}
+\cfoot{\thepage}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+\title{
+  \vspace{1.5cm}
+  \textbf{ND280 Magnetic Field Monitoring System}\\[0.5cm]
+  \Large Technical Design Report\\[0.5cm]
+  \large Version 0.4
+}
+\author{
+  Stefano Levorato\\
+  INFN -- Laboratori Nazionali di Legnaro
+}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+\vfill
+\begin{center}
+\textbf{Internal development document}
+\end{center}
+\newpage
+
+\chapter*{Document Control}
+\addcontentsline{toc}{chapter}{Document Control}
+\begin{tabular}{ll}
+\toprule
+Document & ND280 Magnetic Field Monitoring System -- Technical Design Report \\
+Version & 0.4 \\
+Status & Draft for internal review \\
+Author & Stefano Levorato \\
+Institution & INFN -- Laboratori Nazionali di Legnaro \\
+Repository & \url{https://github.com/stefanolevorato/ND280-Magnetic-Field-Monitoring-System} \\
+\bottomrule
+\end{tabular}
+
+\vspace{1cm}
+\section*{Revision History}
+\begin{tabular}{llll}
+\toprule
+Version & Date & Author & Description \\
+\midrule
+0.1 & August 2026 & S. Levorato & Initial LaTeX project structure \\
+0.2 & August 2026 & S. Levorato & Scientific motivation and bibliography \\
+0.3 & August 2026 & S. Levorato & System Views and Chapters 4--5 completed \\
+0.4 & August 2026 & S. Levorato & Added monitor long-duration evidence and Rev.A hardware render \\
+\bottomrule
+\end{tabular}
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+
+\include{chapters/01_introduction}
+\include{chapters/02_scientific_motivation}
+\include{chapters/03_requirements}
+\include{chapters/04_architecture}
+\include{chapters/05_reference_node}
+\include{chapters/06_nodeos}
+\include{chapters/07_monitor}
+\include{chapters/08_multiplexing_node}
+\include{chapters/09_distributed_system}
+\include{chapters/10_protocol}
+\include{chapters/11_validation}
+\include{chapters/12_conclusions_roadmap}
+
+\appendix
+\include{appendices/A_hardware_revisions}
+\include{appendices/B_firmware_revisions}
+\include{appendices/C_protocol_reference}
+\include{appendices/D_adr_index}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography/references}
+\end{document}

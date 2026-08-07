@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="920" viewBox="0 0 1400 920">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4A5560"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="700.0" y="48" font-family="Liberation Sans,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#25313C">SV-01  Overall System Architecture</text>
+<rect x="510" y="82" width="380" height="86" rx="16" fill="#F1F1F1" stroke="#616161" stroke-width="3"/>
+<text x="700.0" y="116" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">USER</text>
+<text x="700.0" y="148" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">Engineering / Operations</text>
+<line x1="700" y1="168" x2="700" y2="205" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="460" y="210" width="480" height="105" rx="16" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="3"/>
+<text x="700.0" y="244" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">ND280 Monitor</text>
+<text x="700.0" y="276" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">Configuration | Diagnostics | Visualization | Logging</text>
+<line x1="700" y1="315" x2="700" y2="355" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="465" y="360" width="470" height="105" rx="16" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="700.0" y="394" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">Coordinator</text>
+<text x="700.0" y="426" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">Discovery | Scheduling | Data aggregation</text>
+<line x1="700" y1="465" x2="700" y2="515" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="400" y="520" width="600" height="80" rx="16" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="700.0" y="554" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">Segmented I2C Network</text>
+<text x="700.0" y="586" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">TCA9517A daisy-chain communication</text>
+<line x1="700" y1="600" x2="700" y2="640" stroke="#4A5560" stroke-width="3" fill="none"/>
+<line x1="265" y1="640" x2="1135" y2="640" stroke="#4A5560" stroke-width="3" fill="none"/>
+<line x1="265" y1="640" x2="265" y2="675" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="95" y="680" width="340" height="175" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="265.0" y="714" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">Node 1</text>
+<text x="265.0" y="746" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">NodeOS</text>
+<text x="265.0" y="768" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">ATmega328PB</text>
+<text x="265.0" y="790" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">TCA9548A -&gt; 8 x TMAG5273A2</text>
+<line x1="700" y1="640" x2="700" y2="675" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="530" y="680" width="340" height="175" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="700.0" y="714" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">Node 2</text>
+<text x="700.0" y="746" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">NodeOS</text>
+<text x="700.0" y="768" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">ATmega328PB</text>
+<text x="700.0" y="790" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">TCA9548A -&gt; 8 x TMAG5273A2</text>
+<line x1="1135" y1="640" x2="1135" y2="675" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="965" y="680" width="340" height="175" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="1135.0" y="714" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">Node N</text>
+<text x="1135.0" y="746" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">NodeOS</text>
+<text x="1135.0" y="768" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">ATmega328PB</text>
+<text x="1135.0" y="790" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">TCA9548A -&gt; 8 x TMAG5273A2</text>
+<rect x="135" y="820" width="260" height="55" rx="12" fill="#EAF2F8" stroke="#4F81BD" stroke-width="3"/>
+<text x="265.0" y="854" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Intelligent Acquisition Node</text>
+<rect x="570" y="820" width="260" height="55" rx="12" fill="#EAF2F8" stroke="#4F81BD" stroke-width="3"/>
+<text x="700.0" y="854" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Intelligent Acquisition Node</text>
+<rect x="1005" y="820" width="260" height="55" rx="12" fill="#EAF2F8" stroke="#4F81BD" stroke-width="3"/>
+<text x="1135.0" y="854" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Intelligent Acquisition Node</text>
+<rect x="190" y="880" width="22" height="16" fill="#4F81BD" rx="3"/>
+<text x="220" y="894" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#3F4A53">Hardware</text>
+<rect x="400" y="880" width="22" height="16" fill="#2E7D32" rx="3"/>
+<text x="430" y="894" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#3F4A53">NodeOS</text>
+<rect x="610" y="880" width="22" height="16" fill="#F57C00" rx="3"/>
+<text x="640" y="894" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#3F4A53">Communication</text>
+<rect x="820" y="880" width="22" height="16" fill="#7B1FA2" rx="3"/>
+<text x="850" y="894" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#3F4A53">Desktop software</text>
+<rect x="1030" y="880" width="22" height="16" fill="#C62828" rx="3"/>
+<text x="1060" y="894" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="start" fill="#3F4A53">Scientific sensors</text>
+</svg>

@@ -1,0 +1,41 @@
+\chapter{Introduction}
+
+\section{Background and Motivation}
+
+The ND280 Magnetic Field Monitoring System is an instrumentation project developed by the Istituto Nazionale di Fisica Nucleare (INFN) with the objective of designing, implementing and validating a distributed magnetic-field monitoring infrastructure for the ND280 detector at the Japan Proton Accelerator Research Complex (J-PARC).
+
+The project originates from the need for a compact, modular and scalable monitoring system capable of continuously monitoring the magnetic field at multiple locations inside the detector while providing long-term stability, comprehensive diagnostic capabilities and straightforward integration with the experiment control infrastructure.
+
+Commercial magnetic-field monitoring systems generally do not satisfy the geometrical, mechanical and integration constraints required for the ND280 Near Detector of the T2K experiment, installed inside the C-shaped UA1 magnet. For this reason, a dedicated monitoring system has been specifically designed and developed.
+
+The proposed system is based on intelligent acquisition nodes, each capable of locally acquiring, processing, validating and transmitting magnetic-field measurements while operating autonomously. Each node performs local sensor management, data acquisition, calibration, diagnostics and health monitoring before making the acquired information available to higher-level controllers.
+
+\section{Design Philosophy}
+
+The overall architecture has been intentionally developed following a modular engineering approach in which hardware, embedded firmware, desktop software and technical documentation evolve together under version control.
+
+The system has been designed by separating hardware abstraction, device drivers, acquisition services and application logic. This modular organization minimizes software dependencies and allows future hardware revisions to reuse the same firmware architecture with minimal modifications.
+
+The desktop application, referred to throughout this document as the \textit{ND280 Monitor}, has been developed as an engineering tool supporting commissioning, diagnostics, calibration, visualization and long-term data logging.
+
+The development follows an incremental engineering methodology in which every hardware revision is accompanied by the corresponding firmware, desktop software and validation campaign before introducing additional functionality.
+
+This approach minimizes technical risk, simplifies debugging activities and preserves software compatibility throughout the evolution of the project.
+
+\section{Project Evolution}
+
+The development started from a Reference Single-Sensor Node whose purpose was the validation of the complete acquisition chain, including hardware, firmware, communication protocol and monitoring software.
+
+Once the architecture had been validated through extensive functional and long-duration tests, the project evolved towards the design of an Eight-Sensor Multiplexing Node based on the Texas Instruments TCA9548A I\textsuperscript{2}C multiplexer.
+
+The new hardware architecture extends the acquisition capability from one to eight magnetic sensors while preserving the existing NodeOS architectural principles.
+
+The long-term objective of the project is the realization of a distributed magnetic-field monitoring infrastructure composed of multiple intelligent acquisition nodes interconnected through a segmented communication network and coordinated by a dedicated controller.
+
+\section{Scope of this Document}
+
+This Technical Design Report describes the complete design of the ND280 Magnetic Field Monitoring System, from the validated Reference Single-Sensor Node to the current Eight-Sensor Multiplexing Node and the future distributed acquisition architecture.
+
+The document presents the hardware design, embedded firmware architecture (NodeOS), communication protocol, desktop monitoring software, validation campaign, engineering decisions and future development roadmap.
+
+The purpose of this document is not only to describe the current implementation but also to record the engineering rationale behind the adopted architectural choices, providing a technical reference for future hardware revisions and software developments.

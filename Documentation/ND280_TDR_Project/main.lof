@@ -1,0 +1,25 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \textbf {SV-01 -- Overall System Architecture.} The monitoring system is composed of autonomous intelligent acquisition nodes connected through a segmented communication network. A Coordinator performs node discovery and data aggregation, while the ND280 Monitor provides the user-facing engineering interface.}}{17}{figure.caption.6}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \textbf {SV-02 -- Intelligent Acquisition Node.} TWI1 is dedicated to the local magnetic-sensor subsystem through the TCA9548A multiplexer, while TWI0 is reserved for the segmented inter-board network through the TCA9517A. Hardware identity, operating role, OLED status and persistent calibration are local node resources.}}{18}{figure.caption.7}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \textbf {SV-03 -- NodeOS Layered Architecture.} Hardware abstraction and platform services isolate the application and core services from the underlying microcontroller resources. This organization allows hardware evolution with limited impact on high-level acquisition logic.}}{19}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textbf {SV-04 -- Measurement Processing Workflow.} Transformation of the physical magnetic field into validated scientific information through acquisition, averaging, calibration, diagnostics, protocol framing, coordinator aggregation and desktop-level visualization or storage.}}{19}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \textbf {SV-05 -- Engineering Evolution.} Each validated development stage generates engineering knowledge and deliverables that become the baseline for the following system revision. The approach couples incremental development with validation, design review and qualification.}}{20}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textbf {RV-01 -- Reference Single-Sensor Platform.} The reference acquisition chain couples one TMAG5273A2 sensor to the ATmega328PB running NodeOS and exposes the resulting measurements and diagnostics to the ND280 Monitor through UART.}}{23}{figure.caption.11}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces ND280 Monitor during an extended long-duration acquisition test of the Reference Single-Sensor Node. At the time of the screenshot, Node~4 running NodeOS v0.5.3-alpha1 reported an uptime of 273792~s, 197589 successful measurements, no measurement failures, no TWI errors, no UART receive overflow and no EEPROM errors. The monitor simultaneously displays magnetic-field and temperature trends, node status, the diagnostic response and the raw NodeOS serial stream.}}{29}{figure.caption.19}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Three-dimensional rendering of the Eight-Sensor Multiplexing Node Rev.A. The board integrates the ATmega328PB controller, TCA9548A local sensor multiplexer, TCA9517A segmented inter-board interface, OLED display, hardware configuration elements and eight TMAG5273A2 sensor positions on a single PCB.}}{31}{figure.caption.20}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

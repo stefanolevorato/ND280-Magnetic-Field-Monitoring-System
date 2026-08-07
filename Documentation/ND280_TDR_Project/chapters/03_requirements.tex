@@ -1,0 +1,209 @@
+\chapter{System Requirements and Design Drivers}
+
+ 
+\section{Overview}
+
+The ND280 Magnetic Field Monitoring System has been designed to satisfy a combination of scientific, functional, operational and engineering requirements.
+
+The requirements defined in this chapter provide the reference framework for the hardware architecture, NodeOS firmware, ND280 Monitor application, validation activities and future system extensions.
+
+Each requirement is assigned a unique identifier to support traceability throughout the development and qualification process.
+
+\section{Functional Requirements}
+
+\begin{longtable}{p{22mm}p{110mm}p{25mm}}
+	\toprule
+	ID & Requirement & Status \\
+	\midrule
+	
+	REQ-001 &
+	The system shall continuously acquire the three magnetic-field components $B_x$, $B_y$ and $B_z$. &
+	Verified \\
+	
+	REQ-002 &
+	The system shall acquire the temperature measured by each magnetic sensor. &
+	Verified \\
+	
+	REQ-003 &
+	Each acquisition node shall provide a unique hardware identifier. &
+	Verified \\
+	
+	REQ-004 &
+	Calibration parameters shall be stored in non-volatile memory and shall survive power cycling. &
+	Verified \\
+	
+	REQ-005 &
+	Each acquisition node shall automatically recover from a firmware stall through hardware watchdog supervision. &
+	Verified \\
+	
+	REQ-006 &
+	Each acquisition node shall provide diagnostic information including acquisition statistics, communication errors and reset cause. &
+	Verified \\
+	
+	REQ-007 &
+	The monitoring software shall provide real-time visualization of magnetic-field and temperature measurements. &
+	Verified \\
+	
+	REQ-008 &
+	The monitoring software shall provide persistent data logging for long-duration acquisitions. &
+	Verified \\
+	
+	REQ-009 &
+	The command interface shall reject malformed or unrelated serial traffic without disrupting the acquisition process. &
+	Verified \\
+	
+	REQ-010 &
+	The magnetic-field measurement range shall provide adequate headroom with respect to the nominal ND280 magnetic field of approximately \SI{0.2}{T}. &
+	Verified \\
+	
+	REQ-011 &
+	The local acquisition architecture shall support up to eight TMAG5273A2 sensors connected to a single intelligent node. &
+	Rev.A design \\
+	
+	REQ-012 &
+	The system architecture shall support multiple acquisition nodes connected through a common inter-board communication network. &
+	In development \\
+	
+	REQ-013 &
+	The distributed architecture shall support up to 32 acquisition boards, corresponding to a maximum of 256 magnetic sensors. &
+	Design target \\
+	
+	REQ-014 &
+	The same acquisition-board hardware shall be capable of operating either as a NODE or as a COORDINATOR. &
+	Rev.A design \\
+	
+	REQ-015 &
+	The NODE or COORDINATOR operating role shall be selected through a dedicated hardware configuration input. &
+	Rev.A design \\
+	
+	\bottomrule
+\end{longtable}
+
+\section{Reliability Requirements}
+
+\begin{longtable}{p{22mm}p{110mm}p{25mm}}
+	\toprule
+	ID & Requirement & Status \\
+	\midrule
+	
+	REL-001 &
+	The acquisition process shall continue without operator intervention during normal long-duration operation. &
+	Verified \\
+	
+	REL-002 &
+	A communication error shall not corrupt the internal measurement state of the acquisition node. &
+	Verified \\
+	
+	REL-003 &
+	Invalid EEPROM contents shall be detected and replaced by safe default calibration values. &
+	Verified \\
+	
+	REL-004 &
+	The firmware shall record the cause of the most recent microcontroller reset. &
+	Verified \\
+	
+	REL-005 &
+	The external I\textsuperscript{2}C interface of each board shall remain disabled during microcontroller reset and early boot. &
+	Rev.A design \\
+	
+	REL-006 &
+	The inter-board communication architecture shall electrically segment successive sections of the I\textsuperscript{2}C network. &
+	Rev.A design \\
+	
+	\bottomrule
+\end{longtable}
+
+\section{Engineering Design Drivers}
+
+The system architecture has also been influenced by a number of engineering design drivers that are not purely functional requirements but are considered essential for maintainability and future system evolution.
+
+\begin{itemize}[leftmargin=*]
+	
+	\item \textbf{Modularity.}
+	Hardware abstraction, device drivers, acquisition services and application logic shall remain separated.
+	
+	\item \textbf{Firmware reuse.}
+	A new hardware revision should not require a complete redesign of NodeOS.
+	
+	\item \textbf{Deterministic embedded behaviour.}
+	Dynamic memory allocation is avoided in the embedded firmware.
+	
+	\item \textbf{Hardware-defined identity.}
+	The Node ID is determined by hardware configuration rather than by software or EEPROM contents.
+	
+	\item \textbf{Hardware-defined operating role.}
+	The NODE/COORDINATOR role is determined by a dedicated hardware jumper.
+	
+	\item \textbf{Local data processing.}
+	Each intelligent node performs sensor acquisition, averaging, calibration and diagnostics locally before data are transferred to higher-level controllers.
+	
+	\item \textbf{Independent subsystem validation.}
+	Each hardware and software subsystem should be testable independently.
+	
+	\item \textbf{Incremental qualification.}
+	New functionality is introduced only after the previous development stage has been validated.
+	
+	\item \textbf{Single-board architecture.}
+	Whenever practical, NODE and COORDINATOR operation should use the same PCB and bill of materials.
+	
+\end{itemize}
+
+\section{Scalability}
+
+The system has been intentionally developed through successive levels of complexity:
+
+\begin{enumerate}[leftmargin=*]
+	
+	\item Reference Single-Sensor Node;
+	
+	\item Eight-Sensor Multiplexing Node;
+	
+	\item Distributed Multi-Board Acquisition System;
+	
+	\item Complete detector monitoring infrastructure.
+	
+\end{enumerate}
+
+Each validated development stage provides the reference platform for the following stage.
+
+The Reference Single-Sensor Node validates the complete acquisition chain and the NodeOS architecture.
+
+The Eight-Sensor Multiplexing Node extends local acquisition capability by introducing the TCA9548A while preserving the existing firmware architecture.
+
+The distributed system introduces inter-board communication and coordinator functionality without modifying the local sensor-acquisition concept.
+
+\section{Verification Strategy}
+
+Each requirement shall be associated with one or more verification activities.
+
+Verification methods include:
+
+\begin{itemize}[leftmargin=*]
+	
+	\item schematic and PCB design review;
+	
+	\item firmware unit and integration tests;
+	
+	\item communication protocol tests;
+	
+	\item watchdog and reset-recovery tests;
+	
+	\item EEPROM persistence tests;
+	
+	\item sensor acquisition tests;
+	
+	\item long-duration stability tests;
+	
+	\item inter-board communication tests;
+	
+	\item final detector-level characterization.
+	
+\end{itemize}
+
+A Requirements Traceability Matrix will be maintained as part of the validation documentation and will associate each requirement with the corresponding implementation and verification evidence.
+
+\section{Summary}
+
+The requirements defined in this chapter establish the functional and engineering framework of the ND280 Magnetic Field Monitoring System.
+
+The design prioritizes measurement continuity, robustness, modularity, scalability and long-term maintainability. These requirements directly motivate the system architecture described in the following chapter.

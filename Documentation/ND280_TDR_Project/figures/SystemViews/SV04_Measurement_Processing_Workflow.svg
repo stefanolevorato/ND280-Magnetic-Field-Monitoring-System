@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="850" viewBox="0 0 1500 850">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4A5560"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="750.0" y="48" font-family="Liberation Sans,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#25313C">SV-04  Measurement Processing Workflow</text>
+<rect x="15" y="340" width="120" height="150" rx="14" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="75.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Magnetic Field</text>
+<text x="75.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Physical quantity</text>
+<line x1="135" y1="415" x2="160" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="160" y="340" width="120" height="150" rx="14" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="220.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">TMAG5273A2</text>
+<text x="220.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Digital samples</text>
+<line x1="280" y1="415" x2="305" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="305" y="340" width="120" height="150" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="365.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Measurement</text>
+<text x="365.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Acquire Bx, By, Bz, T</text>
+<line x1="425" y1="415" x2="450" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="450" y="340" width="120" height="150" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="510.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Averaging</text>
+<text x="510.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">10-sample average</text>
+<line x1="570" y1="415" x2="595" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="595" y="340" width="120" height="150" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="655.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Calibration</text>
+<text x="655.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Offset / gain correction</text>
+<line x1="715" y1="415" x2="740" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="740" y="340" width="120" height="150" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="800.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Diagnostics</text>
+<text x="800.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Status and health checks</text>
+<line x1="860" y1="415" x2="885" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="885" y="340" width="130" height="150" rx="14" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="950.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">ND280 Packet</text>
+<text x="950.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Versioned node payload</text>
+<line x1="1015" y1="415" x2="1030" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="1030" y="340" width="130" height="150" rx="14" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="1095.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Coordinator</text>
+<text x="1095.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Aggregation</text>
+<line x1="1160" y1="415" x2="1175" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="1175" y="340" width="130" height="150" rx="14" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="3"/>
+<text x="1240.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">ND280 Monitor</text>
+<text x="1240.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">Visualization / logging</text>
+<line x1="1305" y1="415" x2="1320" y2="415" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="1320" y="340" width="130" height="150" rx="14" fill="#F1F1F1" stroke="#616161" stroke-width="3"/>
+<text x="1385.0" y="374" font-family="Liberation Sans,Arial,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#25313C">Scientific Data</text>
+<text x="1385.0" y="406" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">CSV / database / analysis</text>
+<rect x="60" y="585" width="430" height="70" rx="12" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="275.0" y="619" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#25313C">Acquisition</text>
+<text x="275.0" y="651" font-family="Liberation Sans,Arial,sans-serif" font-size="13" font-weight="400" text-anchor="middle" fill="#3F4A53">Physical quantity -&gt; calibrated measurement</text>
+<rect x="535" y="585" width="430" height="70" rx="12" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="750.0" y="619" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#25313C">Embedded Processing</text>
+<text x="750.0" y="651" font-family="Liberation Sans,Arial,sans-serif" font-size="13" font-weight="400" text-anchor="middle" fill="#3F4A53">Calibration + diagnostics + packetization</text>
+<rect x="1010" y="585" width="430" height="70" rx="12" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="1225.0" y="619" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#25313C">Aggregation and Use</text>
+<text x="1225.0" y="651" font-family="Liberation Sans,Arial,sans-serif" font-size="13" font-weight="400" text-anchor="middle" fill="#3F4A53">Coordinator + monitor + scientific products</text>
+<text x="750" y="760" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#25313C">Physical quantity  -&gt;  digital samples  -&gt;  calibrated measurements  -&gt;  scientific information</text>
+</svg>

@@ -1,0 +1,20 @@
+\chapter{Eight-Sensor Multiplexing Node}
+
+The Eight-Sensor Multiplexing Node extends the Reference Node by adding a TCA9548A local I\textsuperscript{2}C multiplexer and up to eight TMAG5273A2 sensors.
+
+The Rev.A hardware also includes a TCA9517A for segmented inter-board communication, an OLED display, a hardware NODE/COORDINATOR role selector, hardware node identification and dedicated reset/enable control signals.
+
+\section{Rev.A Hardware Realization}
+
+Figure~\ref{fig:revA_render} shows the current three-dimensional rendering of the Eight-Sensor Multiplexing Node Rev.A. The rendering is included to connect the functional architecture introduced in Chapter~4 with the physical hardware implementation. The eight TMAG sensor positions are distributed along the lower edge of the board, while the controller, local multiplexer, OLED display, configuration elements and inter-board connectors are integrated on the same PCB.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth]{HV01_Eight_Sensor_Multiplexing_Node_Render.png}
+    \caption{Three-dimensional rendering of the Eight-Sensor Multiplexing Node Rev.A. The board integrates the ATmega328PB controller, TCA9548A local sensor multiplexer, TCA9517A segmented inter-board interface, OLED display, hardware configuration elements and eight TMAG5273A2 sensor positions on a single PCB.}
+    \label{fig:revA_render}
+\end{figure}
+
+\section{Architectural Continuity}
+
+The Rev.A board preserves the architectural principles validated on the Reference Single-Sensor Node. Local acquisition remains under NodeOS control, while the additional hardware extends the number of sensors and introduces the physical infrastructure required for distributed operation. This allows the new board to be treated as an evolution of the validated reference platform rather than as an independent redesign.

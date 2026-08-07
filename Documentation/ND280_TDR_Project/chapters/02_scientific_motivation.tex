@@ -1,0 +1,103 @@
+\chapter{Scientific Motivation}
+
+\section{Experimental Context}
+
+The T2K experiment is a long-baseline neutrino-oscillation experiment located at J-PARC, Japan. Its off-axis near detector, ND280, is installed approximately \SI{280}{m} from the neutrino production target and operates inside a magnet providing a nominal field of approximately \SI{0.2}{T}. The neutrino beam is first measured by the near detectors, including ND280, and then travels to the far detector, Super-Kamiokande.
+
+The two new High-Angle Time Projection Chambers (HA-TPCs) were installed as part of the ND280 upgrade, which was completed at J-PARC in 2024 \cite{HATPCPerformance}.
+
+ND280 is installed inside the UA1/NOMAD magnet, which provides a nominal magnetic field of approximately \SI{0.2}{T}. The magnetic field allows ND280 to bend charged-particle trajectories, determine the sign of the particle charge, and measure the momentum of particles produced in neutrino interactions \cite{TPCWorkshop,NewTPCsGDR,ND280Review}.
+
+\section{Magnetic Field}
+
+A TPC does not measure the momentum of a charged particle directly. It measures a sequence of points along the particle trajectory. In a magnetic field, the trajectory is curved, and the curvature is used to infer the momentum and the sign of the charge.
+
+For a charged particle in a uniform magnetic field, the transverse momentum is approximately related to the radius of curvature by
+\begin{equation}
+ p_T\,[\si{GeV/c}] \simeq 0.3\,|q|\,B\,[\si{T}]\,R\,[\si{m}],
+ \label{eq:pt}
+\end{equation}
+where $p_T$ is the transverse momentum, $q$ is the charge in units of the elementary charge, $B$ is the magnetic-field strength, and $R$ is the radius of curvature.
+
+In the real reconstruction, the track fit should use the three-dimensional field map
+\begin{equation}
+ \vec{B}(x,y,z),
+ \label{eq:bmap}
+\end{equation}
+rather than only the nominal central value. A dedicated device was developed to measure and map the magnetic field of the ND280 magnet \cite{MagneticFieldDevice}.
+
+\section{Magnetic Field at ND280}
+
+The value of \SI{0.2}{T} is a nominal or average value. The actual magnetic field can vary spatially and can include components transverse to the nominal field direction. Variations may occur near magnet openings, detector structures, and the boundaries of the active TPC volume.
+
+For track reconstruction, the relevant quantity is related to the field integrated along the trajectory. Schematically,
+\begin{equation}
+ \Delta\phi \propto \int B_{\perp}\,\mathrm{d}l,
+ \label{eq:integral}
+\end{equation}
+where $B_{\perp}$ is the component responsible for the measured bending and the integral is taken along the track.
+
+A recent HA-TPC performance paper mentions a magnetic-field map obtained from measurements performed in 2009 in the region of the vertical TPCs \cite{HATPCPerformance}. This makes it important to verify that the map used for the HA-TPC reconstruction is representative of the actual position and configuration of the upgraded chambers.
+
+\section{Impact on Momentum Reconstruction}
+
+If the field is treated as uniform and the relative uncertainty on its scale is $\delta B/B$, then, for a fixed measured curvature,
+\begin{equation}
+ \frac{\delta p_T}{p_T} \simeq \frac{\delta B}{B}.
+ \label{eq:scale}
+\end{equation}
+
+Thus, a one-percent systematic error in the magnetic-field scale produces approximately a one-percent systematic error in the momentum scale. This is a momentum-scale uncertainty and is distinct from the statistical momentum resolution, which is also affected by the number and precision of measured points, diffusion, and multiple scattering.
+
+An inaccurate field map can produce several effects:
+\begin{itemize}[leftmargin=*]
+  \item a bias in the reconstructed momentum scale;
+  \item a position-dependent or angle-dependent momentum bias;
+  \item a degradation of the momentum resolution;
+  \item differences between the reconstructed response of positive and negative tracks;
+  \item a lower reliability of the charge-sign determination.
+\end{itemize}
+
+These effects can propagate to the reconstructed lepton momentum and angle, neutrino-energy estimators, event classification, and the systematic uncertainties used in the T2K oscillation analysis. ND280 is used to constrain uncertainties in the neutrino flux and neutrino-interaction models before oscillation \cite{HATPCPerformance}.
+
+\section{Specific Relevance for the HA-TPCs}
+
+The HA-TPCs were designed to reconstruct particles emitted at large angles relative to the neutrino-beam direction. They are positioned above and below the Super-FGD. The coordinate system used for ND280 is defined with the $x$ axis parallel to the main component of the magnetic field, the $y$ axis opposite to the direction of gravity, and the $z$ axis along the incoming neutrino beam \cite{HATPCPerformance}.
+
+The magnetic-field map is particularly important for the HA-TPCs for the following reasons:
+\begin{enumerate}[leftmargin=*]
+  \item Tracks can cross different regions of the HA-TPC, so the reconstruction depends on the field along the full track.
+  \item Components of the field that are not aligned with the nominal direction can modify the three-dimensional curvature.
+  \item Some high-angle particles may have a shorter track lever arm, making the momentum more sensitive to field-scale and alignment errors.
+  \item The magnetic field can affect electron transport and transverse charge diffusion in the TPC. These effects must be separated from distortions caused by the electric field, field-cage geometry, gas properties, and Micromegas response.
+  \item The field map enters both the detector simulation and the track-reconstruction algorithms.
+\end{enumerate}
+
+\section{Recommended Checks for an HA-TPC Field Study}
+
+A dedicated study should verify:
+\begin{enumerate}[leftmargin=*]
+  \item the three-dimensional field map used by the reconstruction software;
+  \item whether the map is based on direct measurements, magnetostatic simulations, or both;
+  \item coverage of the complete HA-TPC active volume;
+  \item the absolute accuracy of the field scale;
+  \item the accuracy of the $B_x$, $B_y$, and $B_z$ components;
+  \item the alignment between the field-map coordinate system, the magnet, and the HA-TPCs;
+  \item agreement between cosmic-ray data and simulation;
+  \item comparisons of positive and negative tracks;
+  \item reconstructed momentum as a function of position, angle, and charge;
+  \item propagation of the field uncertainty into the final physics analysis.
+\end{enumerate}
+
+\section{Implication for the Monitoring System}
+
+Measuring the magnetic field in ND280 is necessary because the momentum and charge sign are obtained from the curvature of charged-particle tracks in the TPC. For the HA-TPCs, the nominal value of \SI{0.2}{T} is not sufficient. A three-dimensional magnetic-field map is required in the actual volume occupied by the chambers.
+
+The leading direct effect of a field-scale error is a bias in the reconstructed momentum. To first order,
+\begin{equation}
+ \frac{\delta p}{p} \simeq \frac{\delta B}{B}.
+\end{equation}
+
+An incorrectly modelled field non-uniformity or field direction can additionally degrade the momentum resolution, introduce artificial dependencies on position and angle, and reduce the reliability of charge determination.
+
+These considerations provide the scientific motivation for the development of a dedicated distributed magnetic-field monitoring system capable of collecting stable, spatially distributed and traceable magnetic-field measurements over long operating periods.

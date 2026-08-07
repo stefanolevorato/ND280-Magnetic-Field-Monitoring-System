@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{HATPCPerformance}
+K.~Aivazelis et~al.
+\newblock Performance of the high-angle time projection chambers in the
+  upgraded t2k off-axis near detector.
+\newblock 2025.
+\newblock T2K Collaboration, preprint.
+
+\bibitem{TPCWorkshop}
+{T2K Collaboration}.
+\newblock The tpcs of the t2k experiment.
+\newblock Workshop presentation.
+
+\bibitem{NewTPCsGDR}
+{T2K Collaboration}.
+\newblock New tpcs for t2k near detector.
+\newblock Presentation.
+
+\bibitem{ND280Review}
+{T2K Collaboration}.
+\newblock Document for nd280 review.
+\newblock Technical report.
+\newblock Technical report.
+
+\bibitem{MagneticFieldDevice}
+{T2K Collaboration}.
+\newblock A dedicated device for measuring the magnetic field of the nd280
+  magnet in the t2k experiment.
+\newblock {\em Journal of Instrumentation}.
+\newblock Publication information available from CERN Document Server.
+
+\end{thebibliography}

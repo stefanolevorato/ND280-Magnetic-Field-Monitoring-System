@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4A5560"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="700.0" y="48" font-family="Liberation Sans,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#25313C">SV-02  Intelligent Acquisition Node</text>
+<rect x="410" y="100" width="580" height="170" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="700.0" y="134" font-family="Liberation Sans,Arial,sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#25313C">Intelligent Acquisition Controller</text>
+<text x="700.0" y="166" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#3F4A53">ATmega328PB</text>
+<text x="700.0" y="189" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#3F4A53">NodeOS: Measurement | Calibration | Diagnostics | Communication</text>
+<rect x="515" y="285" width="370" height="62" rx="16" fill="#E8F5E9" stroke="#2E7D32" stroke-width="3"/>
+<text x="700.0" y="319" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#25313C">Persistent Configuration</text>
+<text x="700.0" y="351" font-family="Liberation Sans,Arial,sans-serif" font-size="15" font-weight="400" text-anchor="middle" fill="#3F4A53">EEPROM calibration | Node ID | ROLE</text>
+<polyline points="560,270 560,400 350,400 350,435" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<polyline points="840,270 840,400 1050,400 1050,435" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<text x="350" y="390" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#4F81BD">TWI1 - Local Sensor Bus</text>
+<text x="1050" y="390" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#F57C00">TWI0 - Network Bus</text>
+<rect x="190" y="445" width="320" height="95" rx="16" fill="#EAF2F8" stroke="#4F81BD" stroke-width="3"/>
+<text x="350.0" y="479" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">TCA9548A</text>
+<text x="350.0" y="511" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">8-channel local I2C multiplexer</text>
+<rect x="890" y="445" width="320" height="95" rx="16" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="1050.0" y="479" font-family="Liberation Sans,Arial,sans-serif" font-size="22" font-weight="700" text-anchor="middle" fill="#25313C">TCA9517A</text>
+<text x="1050.0" y="511" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="400" text-anchor="middle" fill="#3F4A53">Segmented inter-board buffer</text>
+<line x1="350" y1="540" x2="350" y2="610" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<line x1="1050" y1="540" x2="1050" y2="610" stroke="#4A5560" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+<rect x="80" y="620" width="120" height="85" rx="12" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="140.0" y="654" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#25313C">TMAG 0</text>
+<text x="140.0" y="686" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">TMAG5273A2</text>
+<rect x="220" y="620" width="120" height="85" rx="12" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="280.0" y="654" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#25313C">TMAG 1</text>
+<text x="280.0" y="686" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">TMAG5273A2</text>
+<rect x="360" y="620" width="120" height="85" rx="12" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="420.0" y="654" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#25313C">TMAG 2</text>
+<text x="420.0" y="686" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">TMAG5273A2</text>
+<rect x="500" y="620" width="120" height="85" rx="12" fill="#FDECEC" stroke="#C62828" stroke-width="3"/>
+<text x="560.0" y="654" font-family="Liberation Sans,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle" fill="#25313C">TMAG 7</text>
+<text x="560.0" y="686" font-family="Liberation Sans,Arial,sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#3F4A53">TMAG5273A2</text>
+<text x="500" y="665" font-family="Liberation Sans,Arial,sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#25313C">...</text>
+<rect x="890" y="620" width="320" height="85" rx="12" fill="#FFF3E0" stroke="#F57C00" stroke-width="3"/>
+<text x="1050.0" y="654" font-family="Liberation Sans,Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle" fill="#25313C">Daisy-chain interface</text>
+<text x="1050.0" y="686" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="middle" fill="#3F4A53">INPUT / OUTPUT segment</text>
+<rect x="500" y="730" width="400" height="80" rx="16" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="3"/>
+<text x="700.0" y="764" font-family="Liberation Sans,Arial,sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#25313C">OLED Status Display</text>
+<text x="700.0" y="796" font-family="Liberation Sans,Arial,sans-serif" font-size="14" font-weight="400" text-anchor="middle" fill="#3F4A53">Local engineering and diagnostic information</text>
+<text x="700" y="845" font-family="Liberation Sans,Arial,sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="#25313C">One PCB supports NODE or COORDINATOR operation through hardware role selection.</text>
+</svg>

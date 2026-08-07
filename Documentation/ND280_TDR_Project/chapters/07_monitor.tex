@@ -1,0 +1,22 @@
+\chapter{ND280 Monitor}
+
+The ND280 Monitor is the Python desktop application used for commissioning, diagnostics, calibration, real-time visualization and CSV logging.
+
+The monitor implements the command transport required by the NodeOS finite-state-machine parser and provides engineering access to node identity, diagnostics and calibration information.
+
+\section{Operational View}
+
+The application provides a unified view of the selected node, the magnetic-field and temperature trends, the NodeOS control panel, diagnostic responses and the raw serial stream. This makes it possible to correlate high-level monitoring information with the exact protocol traffic produced by the embedded node.
+
+Figure~\ref{fig:monitor_long_run} shows the ND280 Monitor during an extended acquisition run of the Reference Single-Sensor Node. The screenshot documents simultaneous visualization of the three magnetic-field components, sensor temperature, node identity, packet continuity and the NodeOS diagnostic response.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\textwidth]{SW01_ND280_Monitor_Long_Duration_Run.jpg}
+    \caption{ND280 Monitor during an extended long-duration acquisition test of the Reference Single-Sensor Node. At the time of the screenshot, Node~4 running NodeOS v0.5.3-alpha1 reported an uptime of 273792~s, 197589 successful measurements, no measurement failures, no TWI errors, no UART receive overflow and no EEPROM errors. The monitor simultaneously displays magnetic-field and temperature trends, node status, the diagnostic response and the raw NodeOS serial stream.}
+    \label{fig:monitor_long_run}
+\end{figure}
+
+\section{Engineering Role}
+
+The ND280 Monitor is not only a visualization tool. During development it has been used as the primary engineering interface for firmware bring-up, command testing, EEPROM and calibration operations, long-duration logging and diagnostic inspection. Its behaviour therefore forms part of the validated end-to-end acquisition chain described in this report.

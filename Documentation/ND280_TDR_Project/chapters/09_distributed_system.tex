@@ -1,0 +1,7 @@
+\chapter{Distributed Acquisition System}
+
+The distributed architecture is intended to support multiple acquisition boards connected in a segmented daisy chain.
+
+Each NODE performs local acquisition and exposes processed measurements to the upstream COORDINATOR. The COORDINATOR scans the configured node-address range, maintains a node table and aggregates measurements into a coherent higher-level payload.
+
+The long-term target is a system of up to 32 acquisition boards, corresponding to a maximum of 256 magnetic sensors.

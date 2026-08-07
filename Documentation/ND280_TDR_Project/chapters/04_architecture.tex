@@ -1,0 +1,89 @@
+\chapter{System Architecture Views}
+\label{chap:system-architecture}
+
+\section{Purpose of the Architecture Views}
+
+The architecture of the ND280 Magnetic Field Monitoring System is described through a set of complementary \emph{System Views}. Each view answers one specific engineering question and intentionally omits implementation details that are not required at that level of abstraction.
+
+This representation separates the overall system structure, the acquisition-node concept, the embedded-software organization, the measurement-processing path and the engineering evolution of the project. The same views can therefore remain valid across future hardware revisions even when individual devices or implementation details change.
+
+\section{Overall System Architecture}
+
+The complete monitoring infrastructure is organized as a hierarchy of intelligent acquisition nodes coordinated by a higher-level controller. The desktop application provides configuration, diagnostics, visualization and persistent data logging, while magnetic-field acquisition and preprocessing remain local to each node.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{SV01_Overall_System_Architecture.pdf}
+  \caption{\textbf{SV-01 -- Overall System Architecture.} The monitoring system is composed of autonomous intelligent acquisition nodes connected through a segmented communication network. A Coordinator performs node discovery and data aggregation, while the ND280 Monitor provides the user-facing engineering interface.}
+  \label{fig:sv01}
+\end{figure}
+
+The distributed architecture deliberately avoids direct sensor access from the PC. Each acquisition node is responsible for local sensor management, calibration and diagnostics. This limits the amount of information exchanged over the inter-board network and isolates sensor-specific implementation details from the higher-level system.
+
+\section{Intelligent Acquisition Node}
+
+The Intelligent Acquisition Node is the fundamental building block of the distributed architecture. It combines a local sensor-acquisition path with an independent inter-board communication path, both managed by the same microcontroller and NodeOS firmware.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.96\textwidth]{SV02_Intelligent_Acquisition_Node.pdf}
+  \caption{\textbf{SV-02 -- Intelligent Acquisition Node.} TWI1 is dedicated to the local magnetic-sensor subsystem through the TCA9548A multiplexer, while TWI0 is reserved for the segmented inter-board network through the TCA9517A. Hardware identity, operating role, OLED status and persistent calibration are local node resources.}
+  \label{fig:sv02}
+\end{figure}
+
+The separation of TWI1 and TWI0 is a central architectural choice. Sensor acquisition remains independent of the communication topology, allowing the local measurement subsystem to evolve without redefining the external node interface. The same PCB can operate as a NODE or as a COORDINATOR, with the role selected by a dedicated hardware input.
+
+\section{NodeOS Layered Architecture}
+
+NodeOS provides the common embedded-software architecture used by the acquisition nodes. The application layer is intentionally isolated from microcontroller registers and device-specific peripheral details.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.92\textwidth]{SV03_NodeOS_Layered_Architecture.pdf}
+  \caption{\textbf{SV-03 -- NodeOS Layered Architecture.} Hardware abstraction and platform services isolate the application and core services from the underlying microcontroller resources. This organization allows hardware evolution with limited impact on high-level acquisition logic.}
+  \label{fig:sv03}
+\end{figure}
+
+At the highest level, the application controls the acquisition sequence and system state. Core services implement measurement, calibration, diagnostics and communication. Platform services provide access to persistent storage, watchdog supervision, transport and peripheral drivers. The hardware-abstraction layer contains the microcontroller-dependent interface.
+
+This separation is a design constraint rather than only a coding convention: the application layer does not directly access hardware resources.
+
+\section{Measurement Processing Workflow}
+
+The system converts a physical magnetic-field quantity into validated and traceable scientific information through a deterministic sequence of processing steps.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{SV04_Measurement_Processing_Workflow.pdf}
+  \caption{\textbf{SV-04 -- Measurement Processing Workflow.} Transformation of the physical magnetic field into validated scientific information through acquisition, averaging, calibration, diagnostics, protocol framing, coordinator aggregation and desktop-level visualization or storage.}
+  \label{fig:sv04}
+\end{figure}
+
+The TMAG5273A2 converts the local magnetic field and sensor temperature into digital samples. NodeOS performs acquisition, averaging and calibration, checks diagnostic status and constructs the measurement representation exposed to the communication layer. In the distributed system, the Coordinator aggregates measurements from multiple nodes before they are presented by the ND280 Monitor or stored as scientific data products.
+
+This workflow preserves a clear distinction between raw sensor information, calibrated node-level measurements and higher-level aggregated data.
+
+\section{Engineering Evolution}
+
+The system has been developed incrementally. Each development stage was used to validate the assumptions required for the following stage rather than introducing all hardware and software complexity simultaneously.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[height=0.80\textheight]{SV05_Engineering_Evolution.pdf}
+  \caption{\textbf{SV-05 -- Engineering Evolution.} Each validated development stage generates engineering knowledge and deliverables that become the baseline for the following system revision. The approach couples incremental development with validation, design review and qualification.}
+  \label{fig:sv05}
+\end{figure}
+
+The Reference Single-Sensor Node first validated the complete acquisition chain. The resulting hardware, NodeOS firmware, communication protocol and ND280 Monitor then formed the reference platform for the Eight-Sensor Multiplexing Node. The Rev.A design adds local multiplexing and segmented inter-board communication without abandoning the validated architectural principles.
+
+The next stage is prototype manufacturing and bring-up of the Eight-Sensor Multiplexing Node, followed by multi-board validation and Coordinator development. This process can be summarized by the following engineering principle:
+
+\begin{quote}
+\emph{Every validated development stage generates engineering knowledge that becomes the foundation of the following system revision.}
+\end{quote}
+
+\section{Summary}
+
+The System Views establish the common architectural vocabulary used throughout this report. The monitoring infrastructure is built from autonomous intelligent nodes; local sensor acquisition is separated from inter-board communication; NodeOS isolates high-level behaviour from hardware implementation; and measurement information is processed through a deterministic chain before aggregation and visualization.
+
+The following chapter describes the Reference Single-Sensor Node, which was used to validate these principles before increasing hardware complexity.
