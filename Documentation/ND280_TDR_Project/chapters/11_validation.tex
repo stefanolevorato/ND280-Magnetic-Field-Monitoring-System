@@ -15,3 +15,83 @@ A later extended acquisition run provided a substantially longer operational sam
 The ND280 Monitor simultaneously reported zero missing packets for the displayed acquisition sequence. This extended run provides additional evidence that the acquisition, TWI communication, EEPROM handling, command transport and monitoring chain can operate continuously over multi-day periods without the error modes observed during the earlier UART parser development phase.
 
 These results validate the Reference Node as an engineering baseline. Final noise, offset, thermal behaviour, absolute calibration and distributed-bus performance remain to be qualified on the Eight-Sensor Multiplexing Node and on the final detector hardware.
+
+\section{Calibration and Metrological Characterization Strategy}
+
+\subsection{Scope of the calibration programme}
+
+The ND280 Magnetic Field Monitoring System is intended primarily as a distributed monitoring instrument rather than as an absolute magnetic-field mapping system. Its calibration strategy must therefore be proportional to this objective. The system does not need to reproduce the metrological performance of dedicated high-precision Hall mapping probes; however, calibration cannot be neglected because sensor-to-sensor differences, offsets, temperature dependence and cross-axis effects could otherwise generate apparent field variations that are unrelated to the detector magnet.
+
+A useful reference is the calibration and characterization procedure developed for a dedicated CERN 3D Hall sensor card \cite{MessnerHallCalibration}. That work identifies offset, temperature dependence, non-linearity, planar Hall effects and mechanical misalignment as relevant contributors to the final measurement error, and demonstrates the value of a controlled calibration procedure for compensating such effects. The authors report mean residuals of approximately $9.15\times10^{-5}$~T in field magnitude and 0.97~mrad in angle over a 0.1--2~T range across ten calibrated units. These values define the performance of a substantially more demanding mapping application and are not adopted as requirements for the ND280 monitor; they nevertheless provide a useful example of how calibration accuracy, temperature stability and production reproducibility can be quantified.
+
+For the ND280 system, the principal metrological objectives are instead:
+
+\begin{itemize}[leftmargin=*]
+\item repeatable measurement of temporal changes in the magnetic field;
+\item comparability of measurements from different TMAG5273A2 sensors and acquisition boards;
+\item controlled dependence of the reported field on sensor temperature;
+\item sufficient absolute accuracy to identify incorrect installation, configuration or gross field deviations;
+\item traceable calibration parameters that remain associated with the physical sensor throughout operation and maintenance.
+\end{itemize}
+
+\subsection{Proposed calibration model}
+
+The present NodeOS implementation supports per-axis offset and gain parameters stored in non-volatile memory. This representation is intentionally simple and remains appropriate for early bring-up and engineering tests. The calibration infrastructure will, however, be designed so that it can evolve without changing the higher-level acquisition protocol.
+
+The natural next step is a vector calibration model of the form
+\begin{equation}
+\vec{B}_{\mathrm{cal}} = \mathbf{M}\left(\vec{B}_{\mathrm{raw}}-\vec{O}\right),
+\label{eq:nd280_vector_calibration}
+\end{equation}
+where $\vec{O}$ is a three-component offset vector and $\mathbf{M}$ is a $3\times3$ correction matrix. The diagonal terms of $\mathbf{M}$ describe axis sensitivities, while the off-diagonal terms can absorb first-order cross-axis coupling and small orientation errors. A temperature-dependent extension may be introduced after characterization, for example by allowing the offset vector and selected matrix coefficients to vary around a reference temperature $T_0$.
+
+The complexity of the final model will be determined experimentally. The CERN Hall-card study uses a considerably more sophisticated response model based on spherical harmonics because it addresses discrete Hall elements, mechanical alignment and a very wide field range \cite{MessnerHallCalibration}. Such a model would be unnecessarily complex for the present system unless the TMAG5273A2 characterization demonstrates residual non-linearities that cannot be corrected with a simpler matrix-based approach.
+
+\subsection{Field-range characterization}
+
+The dedicated Hall-card study shows that calibration parameters may vary with magnetic-field strength and describes a multi-field procedure in which calibration coefficients determined at different field magnitudes are interpolated across the operating range \cite{MessnerHallCalibration}. This observation is relevant even though the ND280 monitoring system operates in a much narrower field region centered near \SI{0.2}{T}.
+
+The first Rev.A characterization campaign should therefore include several reference field values around the expected operating region rather than relying on a single-point calibration. A preliminary set of characterization points may include zero field and representative values around \SI{0.1}{T}, \SI{0.2}{T} and \SI{0.25}{T}, subject to the capabilities of the available reference magnet and instrumentation. These values are not yet calibration requirements; they define an initial measurement programme intended to determine whether a single linear correction is sufficient in the ND280 operating range.
+
+If the residuals show a significant field-dependent structure, the calibration model can be extended either by piecewise interpolation of coefficients or by an alternative non-linear correction. If no significant improvement is observed, the simpler model will be retained.
+
+\subsection{Temperature characterization}
+
+Temperature must be treated as a measured calibration variable rather than only as an environmental diagnostic. This requirement is facilitated by the TMAG5273A2, which already provides local temperature information for every sensor.
+
+The CERN calibration study demonstrates why this is important: the residual error in reconstructed field magnitude changes measurably between the calibration temperatures and the temperature extremes, even after application of a temperature correction model \cite{MessnerHallCalibration}. The ND280 characterization campaign should therefore repeat representative field measurements at several temperatures spanning the expected detector operating range. The objective is not to reproduce the temperature-controlled apparatus of the reference study, but to quantify the temperature coefficient and determine whether explicit compensation is required for the desired monitoring precision.
+
+\subsection{Sensor-to-sensor and board-to-board reproducibility}
+
+A distributed system containing potentially hundreds of sensors cannot rely on the behaviour of a single characterized device. The calibration campaign must therefore quantify the spread between TMAG5273A2 devices and between independently assembled acquisition boards.
+
+The reference Hall-card work calibrated and tested ten separate cards and used the dispersion of the reconstructed field residuals as a measure of production and calibration reproducibility \cite{MessnerHallCalibration}. A similar principle should be adopted for the ND280 system. After Rev.A bring-up, multiple boards should be exposed to identical magnetic-field and temperature conditions and their residual distributions compared. This will determine whether one generic calibration model is sufficient, whether coefficients must be determined sensor-by-sensor, and how much of the measurement uncertainty originates from production variability.
+
+\subsection{Calibration data management}
+
+Calibration data shall remain permanently associated with the physical sensor. The current EEPROM infrastructure already provides the basis for persistent storage, but the data format should evolve from the present simple gain-and-offset representation to a versioned calibration record. A future calibration record should contain, as appropriate:
+
+\begin{itemize}[leftmargin=*]
+\item calibration-model version;
+\item sensor and board identifiers;
+\item three-axis offset vector;
+\item three-dimensional correction matrix;
+\item temperature coefficients and reference temperature;
+\item calibration date and calibration-range identifier;
+\item validation or quality flags;
+\item integrity information such as a CRC.
+\end{itemize}
+
+Versioning is important because it allows NodeOS to retain backward compatibility with the existing Reference Node while supporting more complete calibration models on later hardware revisions.
+
+\subsection{In-situ verification}
+
+Laboratory calibration and detector operation serve different purposes. Laboratory calibration determines the relationship between sensor output and a known magnetic field under controlled conditions. Once installed in ND280, the monitoring network should instead perform periodic consistency checks intended to reveal drift, installation problems or anomalous sensors.
+
+In-situ checks may include comparisons between nearby sensors, repeated measurements at reproducible magnet operating points, verification of zero-field offsets when such operating conditions are available, and comparison with the established ND280 magnetic-field map. These procedures do not replace laboratory calibration; they provide long-term verification that the calibration remains applicable throughout detector operation.
+
+\subsection{Calibration work package for Rev.A}
+
+The calibration programme will therefore be introduced as a dedicated work package following the electrical bring-up of the Eight-Sensor Multiplexing Node. The initial objective is characterization rather than immediate implementation of a complex correction algorithm. Raw data from multiple sensors, field values and temperatures will first be collected and analysed offline. Only after the dominant error terms have been identified will the corresponding correction model be frozen and incorporated into NodeOS and the EEPROM calibration format.
+
+This staged approach is consistent with the overall engineering philosophy of the project: measurement evidence determines the complexity of the implementation, and each additional calibration feature must demonstrate a measurable improvement before becoming part of the reference architecture.

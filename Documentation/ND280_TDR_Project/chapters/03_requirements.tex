@@ -11,7 +11,7 @@ Each requirement is assigned a unique identifier to support traceability through
 
 \section{Functional Requirements}
 
-\begin{longtable}{p{22mm}p{110mm}p{25mm}}
+\begin{longtable}{p{18mm}p{106mm}p{23mm}}
 	\toprule
 	ID & Requirement & Status \\
 	\midrule
@@ -81,7 +81,7 @@ Each requirement is assigned a unique identifier to support traceability through
 
 \section{Reliability Requirements}
 
-\begin{longtable}{p{22mm}p{110mm}p{25mm}}
+\begin{longtable}{p{18mm}p{106mm}p{23mm}}
 	\toprule
 	ID & Requirement & Status \\
 	\midrule
@@ -147,6 +147,57 @@ The system architecture has also been influenced by a number of engineering desi
 	Whenever practical, NODE and COORDINATOR operation should use the same PCB and bill of materials.
 	
 \end{itemize}
+
+
+\section{Calibration and Metrological Requirements}
+
+The ND280 Magnetic Field Monitoring System is not intended to replace a dedicated high-precision magnetic-field mapping instrument. Its primary purpose is distributed, long-term monitoring of the magnetic field and the detection of spatial or temporal variations relevant to detector operation. Nevertheless, the usefulness of such a monitor depends on the measurements being sufficiently stable, reproducible and comparable between sensors and acquisition nodes.
+
+A recent calibration study of a dedicated three-dimensional Hall sensor card developed at CERN illustrates the principal error sources that can affect Hall-based vector measurements, including offset, temperature dependence, non-linearity, cross-axis effects and mechanical or angular misalignment. The same study emphasizes that a dedicated calibration procedure is required when high measurement accuracy is needed \cite{MessnerHallCalibration}. The absolute performance target of that system is substantially more demanding than required for the ND280 monitoring application; however, the underlying metrological methodology is directly relevant to the present project.
+
+The following requirements are therefore adopted for the calibration and characterization programme of the ND280 monitoring nodes:
+
+\begin{longtable}{p{18mm}p{106mm}p{23mm}}
+\toprule
+ID & Requirement & Status \\
+\midrule
+
+CAL-001 &
+Each magnetic sensor shall have an individually identifiable calibration data set. &
+Design target \\
+
+CAL-002 &
+The calibration model shall support correction of per-axis offset and sensitivity and shall be extensible to cross-axis and alignment corrections if required by characterization data. &
+Design target \\
+
+CAL-003 &
+Calibration coefficients shall be stored in non-volatile memory together with a calibration format or version identifier. &
+Partially implemented \\
+
+CAL-004 &
+The calibration procedure shall characterize the temperature dependence of the magnetic-field measurement over the expected operating temperature range. &
+Planned \\
+
+CAL-005 &
+The calibration campaign shall evaluate sensor-to-sensor and board-to-board reproducibility using multiple independently assembled units. &
+Planned \\
+
+CAL-006 &
+The calibration model shall be validated over the magnetic-field range relevant to ND280 operation and shall provide adequate margin around the nominal field of approximately \SI{0.2}{T}. &
+Planned \\
+
+CAL-007 &
+The system shall preserve the raw or minimally processed sensor information required to repeat calibration studies and to evaluate alternative correction models offline. &
+Design target \\
+
+CAL-008 &
+The calibration procedure and its resulting coefficients shall be traceable through documented calibration conditions, sensor identity, calibration date and validation results. &
+Planned \\
+
+\bottomrule
+\end{longtable}
+
+The calibration model will intentionally be kept no more complex than justified by the characterization results. The current offset-and-gain representation therefore remains a valid first-level model. A full three-dimensional correction matrix and explicit temperature terms will be introduced only if measurements demonstrate that they provide a significant improvement in the operating range of the monitoring system.
 
 \section{Scalability}
 

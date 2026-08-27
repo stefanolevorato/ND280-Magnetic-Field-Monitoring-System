@@ -1,27 +1,18 @@
-# ND280 Magnetic Field Monitoring System - TDR v0.3
+# ND280 Magnetic Field Monitoring System - TDR v0.5
 
-This package is based on the current user-maintained LaTeX project and completes Chapters 4 and 5.
+This package contains the LaTeX source and compiled PDF of the Technical Design Report.
 
-## v0.3 additions
-- Chapter 4: System Architecture Views.
-- Chapter 5: Reference Single-Sensor Node.
-- Vector System Views SV-01 through SV-05.
-- Reference View RV-01.
-- Graphical style guide and view catalogue.
+## v0.5 update
+
+- Added calibration and metrological requirements to Chapter 3.
+- Added a dedicated Calibration and Metrological Characterization Strategy to Chapter 11.
+- Added a planned Rev.A calibration work package to the roadmap.
+- Added a bibliography entry for Messner et al., *Calibration and characterization of a 3D magnetic Hall sensor card* (prepared for submission to JINST).
+- The TDR explicitly distinguishes the ND280 long-term monitoring objective from high-precision absolute magnetic-field mapping while adopting the relevant calibration methodology: per-sensor traceability, vector correction, temperature characterization, multi-field checks and reproducibility studies.
 
 ## Build
-Recommended sequence on a LaTeX installation with BibTeX:
 
     pdflatex main.tex
     bibtex main
     pdflatex main.tex
     pdflatex main.tex
-
-The included diagrams are PDF vector files generated from SVG sources.
-
-
-## v0.4 update
-
-- Added real ND280 Monitor long-duration acquisition screenshot.
-- Added Eight-Sensor Multiplexing Node Rev.A 3D hardware render.
-- Extended validation chapter with the ~76 h run evidence.
