@@ -1,33 +1,32 @@
-\begin{thebibliography}{1}
-
+\begin{thebibliography}{6}
+\providecommand{\url}[1]{\texttt{#1}}
 \bibitem{HATPCPerformance}
-K.~Aivazelis et~al.
-\newblock Performance of the high-angle time projection chambers in the
-  upgraded t2k off-axis near detector.
-\newblock 2025.
-\newblock T2K Collaboration, preprint.
+K.~Aivazelis and others.
+\newblock Performance of the High-Angle Time Projection Chambers in the Upgraded T2K Off-Axis Near Detector.
+\newblock T2K Collaboration, preprint, 2025.
+
+\bibitem{MagneticFieldDevice}
+T2K Collaboration.
+\newblock A dedicated device for measuring the magnetic field of the ND280 magnet in the T2K experiment.
+\newblock \emph{Journal of Instrumentation}. Publication information available from CERN Document Server.
 
 \bibitem{TPCWorkshop}
-{T2K Collaboration}.
-\newblock The tpcs of the t2k experiment.
+T2K Collaboration.
+\newblock The TPCs of the T2K experiment.
 \newblock Workshop presentation.
 
 \bibitem{NewTPCsGDR}
-{T2K Collaboration}.
-\newblock New tpcs for t2k near detector.
+T2K Collaboration.
+\newblock New TPCs for T2K near detector.
 \newblock Presentation.
 
 \bibitem{ND280Review}
-{T2K Collaboration}.
-\newblock Document for nd280 review.
-\newblock Technical report.
+T2K Collaboration.
+\newblock Document for ND280 review.
 \newblock Technical report.
 
-\bibitem{MagneticFieldDevice}
-{T2K Collaboration}.
-\newblock A dedicated device for measuring the magnetic field of the nd280
-  magnet in the t2k experiment.
-\newblock {\em Journal of Instrumentation}.
-\newblock Publication information available from CERN Document Server.
-
+\bibitem{MessnerHallCalibration}
+L.~Messner, N.~Pacifico, D.~Baumgarten, and R.~Dumps.
+\newblock Calibration and characterization of a 3D magnetic Hall sensor card.
+\newblock Prepared for submission to JINST; CERN EP-DT and University of Innsbruck.
 \end{thebibliography}

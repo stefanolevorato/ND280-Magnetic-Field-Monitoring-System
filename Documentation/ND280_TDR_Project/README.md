@@ -1,8 +1,8 @@
-# ND280 Magnetic Field Monitoring System - TDR v0.5
+# ND280 Magnetic Field Monitoring System - TDR v0.6
 
 This package contains the LaTeX source and compiled PDF of the Technical Design Report.
 
-## v0.5 update
+## v0.6 update
 
 - Added calibration and metrological requirements to Chapter 3.
 - Added a dedicated Calibration and Metrological Characterization Strategy to Chapter 11.

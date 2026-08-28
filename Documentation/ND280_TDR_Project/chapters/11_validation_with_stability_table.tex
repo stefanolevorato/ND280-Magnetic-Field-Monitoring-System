@@ -33,6 +33,30 @@ Figure~\ref{fig:prelim_bxyz_distributions} shows the distributions of the three 
   \label{fig:prelim_bxyz_distributions}
 \end{figure}
 
+Table~\ref{tab:preliminary_field_stability} summarizes the measured distribution means and RMS values together with the parameters obtained from the rebinned Gaussian fits.
+
+\begin{table}[htbp]
+\centering
+\caption{Preliminary statistical characterization of the three magnetic-field components measured during the Reference Node stability run. Gaussian parameters are reported as descriptive quantities only and shall not be interpreted as measurements of the intrinsic TMAG5273A2 resolution.}
+\label{tab:preliminary_field_stability}
+\small
+\begin{tabular}{lcccc}
+\hline
+Component &
+\begin{tabular}[c]{@{}c@{}}Distribution\\mean [mT]\end{tabular} &
+\begin{tabular}[c]{@{}c@{}}Distribution\\RMS [mT]\end{tabular} &
+\begin{tabular}[c]{@{}c@{}}Gaussian\\mean [mT]\end{tabular} &
+\begin{tabular}[c]{@{}c@{}}Gaussian\\$\sigma$ [mT]\end{tabular} \\
+\hline
+$B_x$ & $-0.09286$ & $0.04438$ & $-0.09438 \pm 0.00024$ & $0.04272 \pm 0.00020$ \\
+$B_y$ & $-0.2894$  & $0.04541$ & $-0.2921 \pm 0.0003$  & $0.04643 \pm 0.00017$ \\
+$B_z$ & $+0.1223$  & $0.03337$ & $+0.1228 \pm 0.0002$  & $0.03141 \pm 0.00015$ \\
+\hline
+\end{tabular}
+\end{table}
+
+The fitted Gaussian widths correspond to approximately \SI{43}{\micro\tesla}, \SI{46}{\micro\tesla} and \SI{31}{\micro\tesla} for the $B_x$, $B_y$ and $B_z$ components, respectively. These values characterize the observed short-term spread of the complete acquisition chain rather than the intrinsic resolution of the magnetic sensor.
+
 The Gaussian description is not statistically adequate for the complete distributions: the fitted $\chi^2/\mathrm{ndf}$ values are approximately 3968/17, 3570/15 and 2519/16 for $B_x$, $B_y$ and $B_z$, respectively. Consequently, the fitted $\sigma$ values must not be interpreted as intrinsic sensor resolutions. The non-Gaussian structure may contain contributions from quantization, slow drift, temperature dependence, environmental magnetic-field variations and other effects of the complete measurement chain. This observation directly motivates the controlled characterization programme described later in this chapter.
 
 \subsection{Temporal behaviour}
